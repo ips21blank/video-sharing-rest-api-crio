@@ -27,9 +27,10 @@ const configs = {
   mongoose: {
     url: value.MONGODB_URL,
     options: {
-      useCreateIndex: true,
-      useNewUrlParser: true,
-      useUnifiedTopology: true
+      // NOTE!! : FOLLOWING ARE NO LONGER REQUIRED/SUPPPORTED BY NEW MONGOOSE 6.0.
+      // useCreateIndex: true,
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true
     }
   },
   jwt: {
