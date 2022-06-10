@@ -16,7 +16,7 @@ const errorHandler = (err: ApiError, req: Req, res: Res, next: Next) => {
   res.status(code).send(message);
 };
 
-type AsyncControllerType = (req: Req, res: Res, next?: Next) => Promise<any>;
+type AsyncControllerType = (req: Req, res: Res, next?: Next) => Promise<any> | void;
 
 const asyncErrorWrapper =
   (fn: AsyncControllerType) => (req: Req, res: Res, next: Next) => {
