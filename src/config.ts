@@ -1,7 +1,7 @@
 import Joi from 'joi';
 import dotenv from 'dotenv';
 import path from 'path';
-import { EnvSchema } from '@tsTypes';
+import { EnvSchema } from './types';
 
 const envPath = path.join(__dirname, '../.env');
 

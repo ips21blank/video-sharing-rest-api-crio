@@ -16,11 +16,18 @@ const errorHandler = (err: ApiError, req: Req, res: Res, next: Next) => {
   res.status(code).send(message);
 };
 
-type AsyncControllerType = (req: Req, res: Res, next?: Next) => Promise<any> | void;
+type AsyncControllerType<RQ extends Req, RS extends Res> = (
+  req: RQ,
+  res: RS,
+  next?: Next
+) => Promise<any> | void;
 
-const asyncErrorWrapper =
-  (fn: AsyncControllerType) => (req: Req, res: Res, next: Next) => {
+function asyncErrorWrapper<RQ extends Req, RS extends Res>(
+  fn: AsyncControllerType<RQ, RS>
+) {
+  return (req: RQ, res: RS, next: Next) => {
     Promise.resolve(fn(req, res, next)).catch((err: ApiError) => next(err));
   };
+}
 
 export { ApiError, errorHandler, asyncErrorWrapper };

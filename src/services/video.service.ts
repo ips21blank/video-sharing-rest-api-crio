@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import { Video } from '@models';
-import { ApiError } from '@errors';
+import { Video } from '../models';
+import { ApiError } from '../errors';
 import httpStatus from 'http-status';
 import {
   CustomVideoQuery,
@@ -8,7 +8,7 @@ import {
   VideoSaveData,
   VOTE_TYPE,
   VOTE_TYPE_CHANGE
-} from '@tsTypes';
+} from '../types';
 
 class VideoService {
   public async getVideoById(id: string | mongoose.Types.ObjectId) {

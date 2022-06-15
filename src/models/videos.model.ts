@@ -10,7 +10,7 @@ import {
   VideoModelQueryDoc,
   VideoModelQueryArr,
   CustomVideoQuery
-} from '@tsTypes';
+} from '../types';
 import { videoLinkRegex, validGenre, validAgeRatings } from '../constants';
 import mongoose from 'mongoose';
 
@@ -109,9 +109,9 @@ videoSchema.query.sortByDesc = function (prop?: SortByOption) {
   return this.sort({ [prop || SortByOption.releaseDate]: -1 });
 };
 
-videoSchema.virtual('id').get(function () {
-  return this._id.toHexString();
-});
+// videoSchema.virtual('id').get(function () {
+//   return this._id.toHexString();
+// });
 videoSchema.set('toJSON', {
   versionKey: false,
   virtuals: true,

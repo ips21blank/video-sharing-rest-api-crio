@@ -1,4 +1,4 @@
-import { ApiError, errorHandler } from '@errors';
+import { ApiError, errorHandler } from './errors';
 import express, { Request as Req, Response as Res, NextFunction as Next } from 'express';
 import helmet from 'helmet';
 import httpStatus from 'http-status';
@@ -6,7 +6,7 @@ import { router } from './routes';
 
 const app = express();
 
-app.use(helmet);
+app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
